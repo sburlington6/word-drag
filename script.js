@@ -1,28 +1,66 @@
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('word-container');
+    const settingsBox = document.getElementById('settings-box');
+
+    // Fetch and process the word groups
     fetch('words.json')
         .then(response => response.json())
         .then(data => {
-            data.words.forEach(word => {
-                const draggable = document.createElement('div');
-                draggable.className = 'draggable';
-                draggable.setAttribute('draggable', 'true');
-                draggable.textContent = word;
-                container.appendChild(draggable);
+            // Dynamically create checkboxes based on groups
+            Object.keys(data).forEach(group => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = true;
+                checkbox.className = 'toggle-group';
+                checkbox.setAttribute('data-group', group);
 
-                // Random initial placement
-                const maxLeft = container.clientWidth - draggable.offsetWidth;
-                const maxTop = container.clientHeight - draggable.offsetHeight;
-                const randomLeft = Math.floor(Math.random() * maxLeft);
-                const randomTop = Math.floor(Math.random() * maxTop);
+                const label = document.createElement('label');
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(` ${group}`));
+                settingsBox.appendChild(label);
 
-                draggable.style.left = `${randomLeft}px`;
-                draggable.style.top = `${randomTop}px`;
+                // Create draggable elements for words
+                data[group].forEach(word => {
+                    const draggable = document.createElement('div');
+                    draggable.className = `draggable ${group}`;
+                    draggable.setAttribute('draggable', 'true');
+                    draggable.textContent = word;
+                    draggable.style.color = getRandomColor();
+                    container.appendChild(draggable);
+                });
             });
 
-            initDragAndDrop(); // Initialize drag and drop functionality after words are loaded
+            // Apply random positioning after all elements are added
+            applyRandomPositioning();
+
+            initDragAndDrop();
+
+            // Attach event listener to checkboxes
+            document.querySelectorAll('.toggle-group').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    const group = this.getAttribute('data-group');
+                    const words = document.querySelectorAll(`.${group}`);
+                    words.forEach(word => {
+                        word.style.display = this.checked ? '' : 'none';
+                    });
+                });
+            });
         });
 });
+
+function applyRandomPositioning() {
+    const container = document.getElementById('word-container');
+    const draggables = document.querySelectorAll('.draggable');
+    draggables.forEach(draggable => {
+        const maxLeft = container.clientWidth - draggable.offsetWidth;
+        const maxTop = container.clientHeight - draggable.offsetHeight;
+        const randomLeft = Math.floor(Math.random() * maxLeft);
+        const randomTop = Math.floor(Math.random() * maxTop);
+
+        draggable.style.left = `${randomLeft}px`;
+        draggable.style.top = `${randomTop}px`;
+    });
+}
 
 function initDragAndDrop() {
     const draggables = document.querySelectorAll('.draggable');
@@ -47,6 +85,15 @@ function initDragAndDrop() {
 
     const container = document.getElementById('word-container');
     container.addEventListener('dragover', function (e) {
-        e.preventDefault(); // Necessary to allow dropping
+        e.preventDefault();
     });
+}
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }

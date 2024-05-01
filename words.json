@@ -1,3 +1,22 @@
 {
-    "words": ["Innovate", "Inspire", "Create", "Develop", "Design", "Build"]
-}
+    "adventure-words": [
+        "Adventure", "Explore", "Discover", "Journey", "Quest", "Voyage", "Travel", "Expedition", "Trek", "Odyssey",
+        "Pioneer", "Navigate", "Trail", "Hike", "Wander", "Roam", "Soar", "Venture", "Escape", "Excursion",
+        "Explore", "Safari", "Globe-trot", "Map", "Compass", "Terrain", "Wilderness", "Outdoors", "Camping", "Backpack",
+        "Mountaineer", "Climb", "Summit", "Peak", "Altitude", "Latitude", "Longitude", "Geocache", "Scuba", "Dive",
+        "Snorkel", "Forest", "Desert", "Island", "Ocean", "Sea", "Lake", "River", "Stream", "Cove",
+        "Canyon", "Valley", "Volcano", "Glacier", "Fjord", "Waterfall", "Reef", "Archipelago", "Atoll", "Bay",
+        "Beach", "Cliff", "Harbor", "Peninsula", "Plateau", "Ridge", "Sand", "Shore", "Tundra", "Underbrush",
+        "Vista", "Wildlife", "Fauna", "Flora", "Habitat", "Ecosystem", "Biodiversity", "Conservation", "Sustain", "Preserve",
+        "Pathfinder", "Ranger", "Scout", "Guide", "Tracker", "Sleuth", "Search", "Detect", "Reveal", "Uncover"
+    ],
+
+    "common-words": [
+      "the", "be", "to", "of", "and", "a", "in", "that", "have", "I",
+      "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
+      "this", "but", "his", "by", "from", "they", "we", "say", "her", "she",
+      "or", "an", "will", "my", "one", "all", "would", "there", "their", "what",
+      "so", "up", "out", "if", "about", "who", "get", "which", "go", "me"
+    ]
+  }
+  
