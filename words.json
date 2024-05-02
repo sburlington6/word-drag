@@ -17,6 +17,14 @@
       "this", "but", "his", "by", "from", "they", "we", "say", "her", "she",
       "or", "an", "will", "my", "one", "all", "would", "there", "their", "what",
       "so", "up", "out", "if", "about", "who", "get", "which", "go", "me"
-    ]
+    ],
+
+    "funny-words": [
+        "Bamboozle", "Brouhaha", "Canoodle", "Flibbertigibbet", "Gobbledygook", "Hullabaloo", "Lollygag", "Malarkey", "Nincompoop", "Poppycock",
+        "Snickerdoodle", "Waddle", "Zigzag", "Flummox", "Kerplunk", "Skedaddle", "Woozy", "Befuddle", "Cattywampus", "Guffaw",
+        "Hodgepodge", "Snookered", "Topsy-turvy", "Whirligig", "Yak", "Zonked", "Giggle", "Jiggle", "Plop", "Squiggle",
+        "Twiddle", "Funky", "Quibble", "Razzmatazz", "Sizzle", "Tizzy", "Whoop", "Zippy", "Boondoggle", "Doodle",
+        "Goofy", "Piffle", "Bloop", "Doohickey", "Knickknack", "Pipsqueak", "Schmooze", "Gazump", "Haboob", "Vuvuzela"
+      ]
   }
   
